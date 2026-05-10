@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Studies — Rue</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">Rue</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cs-projects.html">CS Projects</a></li>
+      <li><a href="urban-studies.html">Urban Studies</a></li>
+      <li><a href="fun-facts.html">Fun Facts</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+    <h2 class="section-title">Urban Studies</h2>
+
+    <p class="map-hint">↓ Drag to explore — click a pin to see what I've worked on</p>
+    <div class="map-container">
+      <div id="world-map"></div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Urban Heat Island & Human Mobility</h3>
+        <span class="project-tag">Research</span>
+        <span class="project-tag">MIT Senseable City Lab</span>
+        <span class="project-tag">In Progress</span>
+      </div>
+      <p class="project-desc">
+        An independent research project examining the Urban Heat Island effect
+        and its impact on human mobility patterns. Conducted in affiliation with
+        the MIT Senseable City Lab. Currently in the literature review phase.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>"Flaneuse" in 21st Century Shenzhen</h3>
+        <span class="project-tag">Independent Research</span>
+        <span class="project-tag">Oberlin College</span>
+      </div>
+      <p class="project-desc">
+        A qualitative study examining the female-friendliness of Shenzhen's
+        urban design through a feminist lens. Drawing on the historical figure
+        of the <em>Flaneuse</em>, this research investigates three sites —
+        Shenzhen Metro, Shenzhen Bay Park, and lesbian bar "Jiquan" — through
+        ethnographic observation, surveys, and interviews. Findings reveal
+        tensions between strong physical infrastructure and persistent gaps
+        in women's subjective safety and access.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Seeties</h3>
+        <span class="project-tag">Photo Essay</span>
+        <span class="project-tag">Shenzhen · Hong Kong</span>
+      </div>
+      <p class="project-desc">
+        A personal blog documenting the overlooked urban fabric of Shenzhen
+        and Hong Kong — urban villages, abandoned parks, and the spaces
+        between. Photo essays exploring what cities look like when you slow
+        down and actually look.
+      </p>
+      <a href="http://www.rockydomain.com" class="project-link" target="_blank">Visit Seeties →</a>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>China Urban-Rural Inequality — Exhibition</h3>
+        <span class="project-tag">Curation</span>
+      </div>
+      <p class="project-desc">
+        An independently organized exhibition exploring the spatial and social
+        dimensions of urban-rural inequality in China.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const map = L.map('world-map', {
+      center: [30, 20],
+      zoom: 2,
+      zoomControl: true,
+      scrollWheelZoom: false,
+      minZoom: 2
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 10
+    }).addTo(map);
+
+    const pinIcon = L.divIcon({
+      className: 'custom-pin',
+      html: '<div class="pin-dot"></div>',
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+      popupAnchor: [0, -12]
+    });
+
+    const cities = [
+      {
+        name: 'Shenzhen & Hong Kong',
+        coords: [22.4431, 114.1000],
+        projects: [
+          { title: '"Flaneuse" in 21st Century Shenzhen', tag: 'Research' },
+          { title: 'Seeties — Photo Essays', tag: 'Photo Essay' },
+          { title: 'Urban-Rural Inequality Exhibition', tag: 'Curation' }
+        ]
+      },
+      {
+        name: 'Cambridge, MA',
+        coords: [42.3601, -71.0942],
+        projects: [
+          { title: 'Urban Heat Island & Human Mobility', tag: 'MIT Senseable City Lab' }
+        ]
+      },
+      {
+        name: 'Oberlin, OH',
+        coords: [41.2931, -82.2177],
+        projects: [
+          { title: '"Flaneuse" Research — Oberlin College', tag: 'Research' }
+        ]
+      }
+    ];
+
+    cities.forEach(city => {
+      const projectsHTML = city.projects.map(p => `
+        <div class="popup-project">
+          <span class="popup-tag">${p.tag}</span>
+          <span class="popup-title">${p.title}</span>
+        </div>
+      `).join('');
+
+      const popupContent = `
+        <div class="map-popup">
+          <h4>${city.name}</h4>
+          ${projectsHTML}
+        </div>
+      `;
+
+      L.marker(city.coords, { icon: pinIcon })
+        .addTo(map)
+        .bindPopup(popupContent, {
+          maxWidth: 260,
+          className: 'custom-popup'
+        });
+    });
+  </script>
+
+</body>
+</html>

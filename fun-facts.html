@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun Facts — Rue</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">Rue</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cs-projects.html">CS Projects</a></li>
+      <li><a href="urban-studies.html">Urban Studies</a></li>
+      <li><a href="fun-facts.html">Fun Facts</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+    <h2 class="section-title">Fun Facts</h2>
+
+    <p class="fun-intro">
+      In my free time, I like to do all kinds of sports — rock climbing, rugby,
+      flag football, basketball, frisbee, cycling, badminton, and whatever else
+      comes my way. I'm also a music lover. Rock, indie pop, techno — I'll listen
+      to pretty much anything. I play piano, guitar, and organ. This page is where
+      I randomly drop things I care about.
+    </p>
+
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('sports')">Rue Do Sports</button>
+      <button class="tab-btn" onclick="switchTab('music')">Rue and Music</button>
+    </div>
+
+    <!-- Sports Tab -->
+    <div id="tab-sports" class="tab-content active">
+      <p class="coming-soon">Snapshots coming soon.</p>
+    </div>
+
+    <!-- Music Tab -->
+    <div id="tab-music" class="tab-content">
+
+      <!-- Playlist -->
+      <div class="music-section">
+        <h3 class="music-section-title">Rue's Playlist</h3>
+        <p class="music-section-sub">An ever-growing list. In no particular order.</p>
+
+        <div class="playlist">
+
+          <!-- 加歌：复制下面一个 playlist-row，改 song/artist/genre -->
+          <div class="playlist-row">
+            <span class="pl-index">01</span>
+            <div class="pl-info">
+              <span class="pl-song">Song Title</span>
+              <span class="pl-artist">Artist Name</span>
+            </div>
+            <span class="pl-genre">Indie Pop</span>
+          </div>
+
+          <div class="playlist-row">
+            <span class="pl-index">02</span>
+            <div class="pl-info">
+              <span class="pl-song">Another Song</span>
+              <span class="pl-artist">Artist Name</span>
+            </div>
+            <span class="pl-genre">Rock</span>
+          </div>
+
+          <div class="playlist-row">
+            <span class="pl-index">03</span>
+            <div class="pl-info">
+              <span class="pl-song">Third Song</span>
+              <span class="pl-artist">Artist Name</span>
+            </div>
+            <span class="pl-genre">Techno</span>
+          </div>
+
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Ruefork -->
+      <div class="music-section">
+        <h3 class="music-section-title">Ruefork</h3>
+        <p class="music-section-sub">Albums I've been sitting with.</p>
+
+        <div class="ruefork-grid">
+
+          <!-- 加专辑：复制下面一个 album-card，改内容 -->
+          <div class="album-card">
+            <div class="album-cover placeholder-cover"></div>
+            <div class="album-info">
+              <span class="album-title">Album Title</span>
+              <span class="album-artist">Artist</span>
+              <span class="album-rating love">love</span>
+            </div>
+            <p class="album-review">Short review or feeling here. A sentence or two is enough.</p>
+          </div>
+
+          <div class="album-card">
+            <div class="album-cover placeholder-cover"></div>
+            <div class="album-info">
+              <span class="album-title">Album Title</span>
+              <span class="album-artist">Artist</span>
+              <span class="album-rating okay">okay</span>
+            </div>
+            <p class="album-review">Short review here.</p>
+          </div>
+
+          <div class="album-card">
+            <div class="album-cover placeholder-cover"></div>
+            <div class="album-info">
+              <span class="album-title">Album Title</span>
+              <span class="album-artist">Artist</span>
+              <span class="album-rating mid">mid</span>
+            </div>
+            <p class="album-review">Short review here.</p>
+          </div>
+
+          <div class="album-card">
+            <div class="album-cover placeholder-cover"></div>
+            <div class="album-info">
+              <span class="album-title">Album Title</span>
+              <span class="album-artist">Artist</span>
+              <span class="album-rating ugh">ugh</span>
+            </div>
+            <p class="album-review">Short review here.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Instruments -->
+      <div class="music-section">
+        <h3 class="music-section-title">Musical Instruments Practice</h3>
+        <p class="music-section-sub">Piano · Guitar · Organ</p>
+
+        <div class="practice-log">
+
+          <!-- 加记录：复制下面一个 practice-entry，改内容 -->
+          <div class="practice-entry">
+            <span class="practice-date">May 2025</span>
+            <div class="practice-body">
+              <span class="practice-instrument">Piano</span>
+              <p class="practice-note">Write what you practiced, a piece you're learning, or just how it felt.</p>
+            </div>
+          </div>
+
+          <div class="practice-entry">
+            <span class="practice-date">Apr 2025</span>
+            <div class="practice-body">
+              <span class="practice-instrument">Guitar</span>
+              <p class="practice-note">Practice note here.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
