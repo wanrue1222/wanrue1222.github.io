@@ -1,5 +1,5 @@
 /* ── 字体 ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -9,9 +9,10 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f6f2;
-  color: #1a1a1a;
+  background-color: #ffffff;
+  color: #111111;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 /* ── 导航栏 ── */
@@ -19,19 +20,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 72px;
-  border-bottom: 1px solid #e2ddd6;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ddd;
   position: sticky;
   top: 0;
-  background: #f8f6f2;
+  background: #ffffff;
   z-index: 100;
 }
 
 .nav-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: 'IM Fell English', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #111;
 }
 
 nav ul {
@@ -42,100 +44,183 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #555;
-  font-size: 0.88rem;
+  color: #111;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.04em;
-  transition: color 0.2s;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
 }
 
 nav a:hover {
-  color: #1a1a1a;
+  opacity: 0.4;
 }
 
 /* ── 主页 Hero ── */
-.hero {
+.hero-new {
+  display: grid;
+  grid-template-columns: 160px 1fr 280px;
+  height: calc(100vh - 65px);
+  max-height: calc(100vh - 65px);
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 左列 */
+.hero-left {
+  border-right: 1px solid #ddd;
+  padding: 24px 20px;
   display: flex;
-  align-items: center;
-  gap: 80px;
-  max-width: 960px;
-  margin: 130px auto;
-  padding: 0 48px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
 }
 
-.profile-pic {
-  width: 200px;
-  height: 200px;
-  border-radius: 4px;        /* 锐利方角 */
-  object-fit: cover;
-  flex-shrink: 0;
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.hero-text h1 {
-  font-size: 2.6rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  line-height: 1.2;
+.hero-meta span {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.78rem;
+  color: #999;
+  letter-spacing: 0.02em;
 }
 
-.tagline {
-  font-size: 0.92rem;
-  color: #0066cc;            /* 暖金 */
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
+.hero-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.bio {
-  font-size: 1rem;
+.hero-social a {
+  font-size: 0.78rem;
+  color: #111;
+  font-family: 'IM Fell English', serif;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.hero-social a:hover {
+  opacity: 0.4;
+}
+
+/* 中间 */
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+  padding: 20px 40px 24px 40px;
+  border-right: 1px solid #ddd;
+}
+
+.big-name {
+  font-family: 'IM Fell English', serif;
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: column;
+}
+
+.line-hi {
+  font-size: 6.5rem;
+  color: #111;
+  animation: float 5s ease-in-out infinite;
+}
+
+.line-im {
+  font-size: 6.5rem;
+  color: #111;
+  animation: float 5s ease-in-out infinite 0.3s;
+  padding-left: 2rem;
+}
+
+.line-rue {
+  font-size: 9.5rem;
+  color: #111;
+  animation: float 5s ease-in-out infinite 0.6s;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 460px;
+}
+
+.hero-bio p {
+  font-size: 0.85rem;
   color: #555;
-  margin-bottom: 36px;
-  max-width: 480px;
-  line-height: 1.75;
+  line-height: 1.8;
   font-weight: 300;
 }
 
-/* ── 社交链接 ── */
-.social-links {
+.bio-sub {
+  color: #bbb !important;
+  font-size: 0.78rem !important;
+}
+
+/* 右列：三张照片 */
+.hero-right {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  height: 100%;
 }
 
-.social-links a {
+.hero-img {
+  width: 100%;
+  flex: 1;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) contrast(108%);
+  border-bottom: 1px solid #ddd;
+  min-height: 0;
+}
+
+.hero-img:last-child {
+  border-bottom: none;
+}
+
+/* Ticker */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid #ddd;
+  padding: 8px 0;
+  background: #fff;
+}
+
+.ticker {
   display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 20px;
-  border: 1px solid #1a1a1a;
-  border-radius: 2px;        /* 锐利 */
-  text-decoration: none;
-  color: #1a1a1a;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: all 0.2s;
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
 }
 
-.social-links a:hover {
-  background: #1a1a1a;
-  color: #f8f6f2;
+.ticker span {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #bbb;
+  padding-right: 40px;
+  font-family: 'IM Fell English', serif;
 }
 
-.social-links img {
-  width: 14px;
-  height: 14px;
-  filter: none;
-  transition: filter 0.2s;
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.social-links a:hover img {
-  filter: brightness(0) invert(1);
-}
-
-/* ── 其他页面通用（之后用到） ── */
+/* ── 其他页面通用 ── */
 .page-wrapper {
   max-width: 960px;
   margin: 100px auto;
@@ -143,19 +228,31 @@ nav a:hover {
 }
 
 h2.section-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #0066cc;
+  color: #111;
   margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+h2.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ddd;
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #e2ddd6;
+  border-top: 1px solid #eee;
   margin: 60px 0;
 }
+
 /* ── Project Cards ── */
 .project-card {
   padding: 36px 0;
@@ -169,82 +266,61 @@ h2.section-title {
 }
 
 .project-header h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #111;
 }
 
 .project-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0066cc;
-  border: 1px solid #0066cc;
+  color: #111;
+  border: 1px solid #111;
   padding: 2px 10px;
-  border-radius: 2px;
+  border-radius: 0;
+  opacity: 0.5;
 }
 
 .project-desc {
-  font-size: 0.97rem;
-  color: #555;
+  font-size: 0.93rem;
+  color: #777;
   font-weight: 300;
   max-width: 600px;
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 16px;
 }
 
 .project-link {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  color: #0066cc;
+  color: #111;
   text-decoration: none;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s;
 }
 
 .project-link:hover {
-  text-decoration: underline;
-}
-/* ── Exhibition Gallery ── */
-.exhibit-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 20px;
+  opacity: 0.5;
 }
 
-.exhibit-gallery img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 2px;
-  filter: grayscale(20%);
-  transition: filter 0.3s;
-}
-
-.exhibit-gallery img:hover {
-  filter: grayscale(0%);
-}
-
-/* ── Map ── */
-/* ── Map ── */
 /* ── Map ── */
 .map-hint {
-  font-size: 0.78rem;
-  color: #999;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  color: #bbb;
+  letter-spacing: 0.06em;
   margin-bottom: 16px;
-  font-weight: 400;
 }
 
 .map-container {
   width: 100%;
   height: 420px;
   margin-bottom: 60px;
-  border: 1px solid #e2ddd6;
-  border-radius: 2px;
+  border: 1px solid #ddd;
   overflow: hidden;
-  filter: sepia(8%) contrast(95%);
+  filter: grayscale(100%) contrast(1.05);
 }
 
 #world-map {
@@ -252,33 +328,33 @@ h2.section-title {
   height: 100%;
 }
 
-/* Pin */
 .custom-pin {
   background: none;
   border: none;
 }
 
 .pin-dot {
-  width: 12px;
-  height: 12px;
-  background: #0066cc;
+  width: 10px;
+  height: 10px;
+  background: #111;
   border-radius: 50%;
   border: 2px solid #fff;
-  box-shadow: 0 0 0 1px #0066cc;
+  box-shadow: 0 0 0 1px #111;
   transition: transform 0.2s;
   cursor: pointer;
 }
 
 .pin-dot:hover {
-  transform: scale(1.4);
+  transform: scale(1.5);
 }
 
-/* Popup */
 .custom-popup .leaflet-popup-content-wrapper {
-  border-radius: 2px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  border: 1px solid #e2ddd6;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
   padding: 0;
+  color: #111;
 }
 
 .custom-popup .leaflet-popup-tip {
@@ -291,11 +367,11 @@ h2.section-title {
 }
 
 .map-popup h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
   margin-bottom: 12px;
-  color: #1a1a1a;
+  color: #111;
 }
 
 .popup-project {
@@ -309,17 +385,17 @@ h2.section-title {
 }
 
 .popup-tag {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0066cc;
+  color: #999;
   margin-bottom: 2px;
 }
 
 .popup-title {
-  font-size: 0.82rem;
-  color: #444;
+  font-size: 0.8rem;
+  color: #555;
   font-weight: 300;
   line-height: 1.4;
 }
@@ -336,29 +412,27 @@ h2.section-title {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border-radius: 2px;
-  filter: grayscale(20%);
+  filter: grayscale(100%) contrast(110%);
   transition: filter 0.3s;
 }
 
 .exhibit-gallery img:hover {
   filter: grayscale(0%);
 }
+
 /* ── Fun Facts ── */
 .fun-intro {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.97rem;
+  color: #777;
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.9;
   max-width: 640px;
   margin-bottom: 48px;
 }
 
-/* Tabs */
 .tab-bar {
   display: flex;
-  gap: 0;
-  border-bottom: 1px solid #e2ddd6;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 48px;
 }
 
@@ -367,24 +441,23 @@ h2.section-title {
   border: none;
   border-bottom: 2px solid transparent;
   padding: 10px 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'IM Fell English', serif;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #999;
+  color: #bbb;
   cursor: pointer;
   margin-bottom: -1px;
   transition: all 0.2s;
 }
 
 .tab-btn.active {
-  color: #1a1a1a;
-  border-bottom: 2px solid #1a1a1a;
+  color: #111;
+  border-bottom: 2px solid #111;
 }
 
 .tab-btn:hover {
-  color: #1a1a1a;
+  color: #111;
 }
 
 .tab-content {
@@ -396,8 +469,8 @@ h2.section-title {
 }
 
 .coming-soon {
-  color: #aaa;
-  font-size: 0.9rem;
+  color: #ccc;
+  font-size: 0.88rem;
   font-weight: 300;
   font-style: italic;
   padding: 60px 0;
@@ -409,25 +482,25 @@ h2.section-title {
 }
 
 .music-section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #111;
   margin-bottom: 4px;
 }
 
 .music-section-sub {
-  font-size: 0.82rem;
-  color: #999;
+  font-size: 0.78rem;
+  color: #bbb;
   font-weight: 300;
   margin-bottom: 28px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 /* Playlist */
 .playlist {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .playlist-row {
@@ -435,19 +508,17 @@ h2.section-title {
   align-items: center;
   gap: 20px;
   padding: 14px 0;
-  border-bottom: 1px solid #f0ece6;
-  transition: background 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.15s;
 }
 
 .playlist-row:hover {
-  background: #f5f2ee;
   padding-left: 8px;
 }
 
 .pl-index {
-  font-size: 0.72rem;
-  color: #bbb;
-  font-weight: 400;
+  font-size: 0.7rem;
+  color: #ccc;
   width: 24px;
   flex-shrink: 0;
   font-variant-numeric: tabular-nums;
@@ -460,21 +531,21 @@ h2.section-title {
 }
 
 .pl-song {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #111;
 }
 
 .pl-artist {
-  font-size: 0.78rem;
-  color: #999;
+  font-size: 0.76rem;
+  color: #bbb;
   font-weight: 300;
 }
 
 .pl-genre {
-  font-size: 0.72rem;
-  color: #bbb;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  color: #ccc;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   flex-shrink: 0;
 }
@@ -482,7 +553,7 @@ h2.section-title {
 /* Ruefork */
 .ruefork-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 24px;
 }
 
@@ -496,11 +567,18 @@ h2.section-title {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 2px;
+  filter: grayscale(100%) contrast(110%);
+  transition: filter 0.3s;
+}
+
+.album-cover:hover {
+  filter: grayscale(0%);
 }
 
 .placeholder-cover {
-  background: #e8e4de;
+  background: #f0f0f0;
+  width: 100%;
+  aspect-ratio: 1;
 }
 
 .album-info {
@@ -510,36 +588,35 @@ h2.section-title {
 }
 
 .album-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #111;
 }
 
 .album-artist {
-  font-size: 0.78rem;
-  color: #999;
+  font-size: 0.75rem;
+  color: #bbb;
   font-weight: 300;
 }
 
 .album-rating {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 2px 8px;
-  border-radius: 2px;
   width: fit-content;
   margin-top: 4px;
 }
 
-.album-rating.love  { background: #1a1a1a; color: #f8f6f2; }
-.album-rating.okay  { background: #e8e4de; color: #555; }
-.album-rating.mid   { background: #f0ece6; color: #888; }
-.album-rating.ugh   { background: #f8f6f2; color: #bbb; border: 1px solid #e2ddd6; }
+.album-rating.love { background: #111; color: #fff; }
+.album-rating.okay { background: #eee; color: #555; }
+.album-rating.mid  { background: #f5f5f5; color: #aaa; }
+.album-rating.ugh  { border: 1px solid #ddd; color: #ccc; }
 
 .album-review {
-  font-size: 0.78rem;
-  color: #888;
+  font-size: 0.76rem;
+  color: #aaa;
   font-weight: 300;
   line-height: 1.6;
 }
@@ -548,20 +625,18 @@ h2.section-title {
 .practice-log {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .practice-entry {
   display: flex;
   gap: 32px;
   padding: 20px 0;
-  border-bottom: 1px solid #f0ece6;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .practice-date {
-  font-size: 0.75rem;
-  color: #bbb;
-  font-weight: 400;
+  font-size: 0.72rem;
+  color: #ccc;
   width: 72px;
   flex-shrink: 0;
   padding-top: 2px;
@@ -574,16 +649,16 @@ h2.section-title {
 }
 
 .practice-instrument {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0066cc;
+  color: #111;
 }
 
 .practice-note {
   font-size: 0.88rem;
-  color: #555;
+  color: #777;
   font-weight: 300;
   line-height: 1.7;
   max-width: 520px;

@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rue Huang 宛如</title>
+  <title>Rue</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- 导航栏 -->
   <nav>
-    <span class="nav-name">Rue Huang 宛如</span>
+    <span class="nav-name">Rue</span>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="cs-projects.html">CS Projects</a></li>
@@ -19,33 +18,57 @@
     </ul>
   </nav>
 
-  <!-- 主页内容 -->
-  <main class="hero">
-    <img src="assets/profile.jpg" alt="Your Name" class="profile-pic" />
+  <section class="hero-new">
 
-    <div class="hero-text">
-      <h1>Hi, I'm Rue🫛</h1>
-      <p class="tagline">CS + Economics @ Wellesley College '29</p>
-
-      <p class="bio">
-        Hi folks! I'm Rue and I'm a Computer Science and Economics student at wellesley college. I am interested in many things such 
-        as AI and embodied AI, but my real passion is always urban studies. I like rock climbing.
-
-      </p>
-
-      <!-- 社交链接 -->
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/wanruhuang1" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" />
-          LinkedIn
-        </a>
-        <a href="https://github.com/wanrue1222" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" />
-          GitHub
-        </a>
+    <!-- 左列：只放meta + 社交 -->
+    <div class="hero-left">
+      <div class="hero-meta">
+        <span>Wellesley College</span>
+        <span>CS + Economics '29</span>
+      </div>
+      <div class="hero-social">
+        <a href="mailto:you@wellesley.edu">Mail →</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn →</a>
+        <a href="https://instagram.com/yourhandle" target="_blank">Instagram →</a>
       </div>
     </div>
-  </main>
+
+    <!-- 중앙：大标题 + 简介 -->
+    <div class="hero-center">
+      <h1 class="big-name">
+        <span class="line-hi">HI,</span>
+        <span class="line-im">I'M</span>
+        <span class="line-rue">RUE.</span>
+      </h1>
+      <div class="hero-bio">
+        <p>
+          I'm a Computer Science and Economics student at Wellesley College,
+          interested in AI, embodied robotics, and urban space. My real passion
+          is always the city — how people move through it, who it's built for,
+          and what it forgets.
+        </p>
+        <p class="bio-sub">
+          I rock climb, play rugby, make music, and take photos of
+          places people don't usually look at.
+        </p>
+      </div>
+    </div>
+
+    <!-- 右列：两张照片叠放 -->
+    <div class="hero-right">
+      <img src="assets/outdoor.jpg" alt="Rue outdoor" class="hero-img top-img" />
+      <img src="assets/profile.jpg" alt="Rue" class="hero-img bottom-img" />
+       <img src="assets/bench.jpg" alt="Rue on bench" class="hero-img" />
+    </div>
+
+  </section>
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>CS · ECONOMICS · URBAN STUDIES · EMBODIED AI · ROCK CLIMBING · MUSIC · PHOTOGRAPHY · WELLESLEY '29 · </span>
+      <span>CS · ECONOMICS · URBAN STUDIES · EMBODIED AI · ROCK CLIMBING · MUSIC · PHOTOGRAPHY · WELLESLEY '29 · </span>
+    </div>
+  </div>
 
 </body>
 </html>
