@@ -414,6 +414,57 @@ body.no-scroll { overflow: hidden; }
 .js .statement__inner { opacity: 0.12; transform: translateY(24px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
 .js .statement.is-active .statement__inner { opacity: 1; transform: none; }
 
+/* hidden media slots stay hidden even though they are grids */
+[data-media][hidden], [data-media-sources-section][hidden] { display: none; }
+
+/* --- 6.25 MEDIA (js/media.js): photos, click-to-load video, maps, outside links ---
+   Dark theme; up to 960px wide; 16px side gutter on phones (var(--gutter)). */
+.media-band {
+  max-width: calc(960px + 2 * var(--gutter)); margin: 0 auto; padding: 48px var(--gutter) 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;
+}
+.media-band > .media--youtube { grid-column: 1 / -1; }   /* the video spans full width */
+.media { margin: 0; min-width: 0; }
+.media figcaption { margin-top: 10px; font-size: var(--fs-small); color: var(--text-2); line-height: 1.5; }
+.media__credit { display: block; color: var(--text-3); font-size: 0.85em; margin-top: 2px; }
+.media__credit a { color: inherit; }
+.media__credit a:hover { color: var(--text); }
+/* image */
+.media--image img { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--card); }
+/* map */
+.media--map iframe { display: block; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); filter: grayscale(0.4) brightness(0.85); }
+/* YouTube facade: dark box, optional content note, play button, caption */
+.media-yt { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--card); border: 1px solid var(--border); }
+.media-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.media-yt__facade {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 20px; text-align: center;
+  background: radial-gradient(ellipse at center, #222 0%, var(--card) 70%);
+}
+.media-yt__note { margin: 0; max-width: 40ch; font-size: var(--fs-small); color: var(--text-2); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; }
+.media-yt__play { background: none; border: 0; padding: 0; cursor: pointer; border-radius: 14px; }
+.media-yt__play svg rect { fill: rgba(237, 237, 237, 0.12); stroke: var(--text-2); stroke-width: 1; transition: fill 200ms; }
+.media-yt__play svg path { fill: var(--text); }
+.media-yt__play:hover svg rect, .media-yt__play:focus-visible svg rect { fill: rgba(237, 237, 237, 0.24); }
+.media-yt__caption { margin: 0; max-width: 46ch; font-family: var(--font-serif); color: var(--text); font-size: 1.05rem; }
+/* link card: no image, opens the source in a new tab */
+.media--link {
+  display: grid; gap: 6px; padding: 18px 20px; text-decoration: none;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text);
+  transition: border-color 200ms;
+}
+.media--link:hover, .media--link:focus-visible { border-color: var(--text-2); }
+.media-link__caption { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.4; }
+.media--link .media__credit { margin: 0; font-size: var(--fs-small); }
+.media-link__go { font-size: var(--fs-small); color: var(--text-2); }
+/* housing page */
+.hs-media { margin-top: 24px; max-width: var(--max-w-text); }
+@media (max-width: 700px) {
+  .media-band { grid-template-columns: 1fr; gap: 32px; }
+  .media-yt__caption { font-size: 0.95rem; }
+  .media-yt__note { font-size: 0.8rem; }
+}
+
 /* --- 6.3 TIMELINE --- */
 .timeline-phase { margin-top: 72px; }
 .timeline-phase__label {
@@ -449,13 +500,8 @@ body.no-scroll { overflow: hidden; }
 .tl-links a { color: var(--text-2); }
 
 /* Expandable media (<details>) */
-.tl-media { margin: 12px 0; max-width: var(--max-w-text); }
-.tl-media summary { cursor: pointer; font-size: var(--fs-small); color: var(--text-2); list-style: none; }
-.tl-media summary::-webkit-details-marker { display: none; }
-.tl-media summary::before { content: "+ "; }
-.tl-media[open] summary::before { content: "– "; }
-.tl-media .media-frame { margin-top: 12px; }
-.tl-media iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: var(--radius); }
+/* timeline media slot (filled by js/media.js) */
+.tl-media-slot { margin: 16px 0 4px; max-width: var(--max-w-text); display: grid; gap: 16px; }
 
 /* --- 6.4 THE SYSTEM: 8 towers --- */
 .towers {

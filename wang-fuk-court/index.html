@@ -77,6 +77,11 @@
         </div>
       </section>
 
+      <!-- MEDIA BAND: map, photos and video (js/media-data.js → js/media.js).
+           Hidden until at least one item is complete; incomplete items are skipped. -->
+      <section id="media-band" class="media-band" aria-label="Photos and video"
+               data-media="before-map,scaffolding,fire-video,after" hidden></section>
+
       <!-- TIMELINE: filled from TIMELINE in js/data.js.
            Key events show first; "Show full timeline" reveals the rest. -->
       <section id="timeline" class="section" aria-labelledby="fire-title">
@@ -208,6 +213,8 @@
   <script src="js/who-failed-data.js"></script>
   <script src="js/law-data.js"></script>
   <script src="js/story-data.js"></script>
+  <script src="js/media-data.js"></script>
+  <script src="js/media.js"></script>
   <script src="js/main.js"></script>
   <script src="js/law.js"></script>
 </body>

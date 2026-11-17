@@ -531,25 +531,9 @@ function buildTimeline() {
   const root = $("#timeline-root");
   if (!root || typeof TIMELINE === "undefined") return;
 
-  // Returns the HTML for an optional media slot
-  function mediaHTML(m) {
-    if (!m) return "";
-    let inner;
-    if (m.type === "youtube") {
-      inner = m.id
-        ? `<iframe src="https://www.youtube-nocookie.com/embed/${esc(m.id)}" title="${esc(m.title || "Video")}" loading="lazy"
-             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-        : `<div class="placeholder">[TODO: YouTube video id]</div>`;
-    } else {
-      inner = m.src
-        ? `<img src="${ROOT}${esc(m.src)}" alt="${esc(m.alt || "")}" loading="lazy">`
-        : `<div class="placeholder">[TODO: image] alt: ${esc(m.alt || "")}</div>`;
-    }
-    return `
-      <details class="tl-media">
-        <summary>${m.type === "youtube" ? "Watch video" : "View image"}</summary>
-        <figure class="media-frame">${inner}${m.caption ? `<figcaption class="muted">${esc(m.caption)}</figcaption>` : ""}</figure>
-      </details>`;
+  // Media slot: filled by js/media.js from js/media-data.js (stays hidden until the item is complete)
+  function mediaHTML(id) {
+    return typeof id === "string" && id ? `<div class="tl-media-slot" data-media="${esc(id)}" hidden></div>` : "";
   }
 
   function linksHTML(links) {

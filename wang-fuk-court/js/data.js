@@ -16,18 +16,15 @@
           false = shown only after "Show full timeline"
    text:  the event, one sentence
    cite:  citation ids (js/citations.js); every event has one
-   media (optional): null, or
-     { type: "image",   src: "assets/file.jpg", alt: "description", caption: "" }
-     { type: "youtube", id: "VIDEO_ID", title: "what the video shows", caption: "" }
-       (VIDEO_ID is the part after "watch?v=" in a YouTube link)
-     An empty src / id shows a [TODO] slot.
+   media (optional): the id of an item in js/media-data.js, e.g. "scaffolding".
+     It appears only once that item is complete (no TODO left).
    links (optional): [{ label: "Text", url: "https://..." }]
    --------------------------------------------------------------------- */
 const TIMELINE = [
   // ----- BEFORE -----
   { phase: "before", key: true,  date: "1983",
     text: "Wang Fuk Court completed: a Home Ownership Scheme estate of 8 blocks, 31 storeys each.",
-    cite: ["wiki-kwongfuk"] },
+    cite: ["wiki-kwongfuk"], media: "sale-1983" },
   { phase: "before", key: false, date: "1997",
     text: "Owners form an owners' corporation and take over management.",
     cite: ["wfc-archive"] },
@@ -48,8 +45,7 @@ const TIMELINE = [
     cite: ["wfc-archive"] },
   { phase: "before", key: true,  date: "Jul 2024",
     text: "Works begin; all 8 blocks are wrapped in bamboo scaffolding and green netting.",
-    cite: ["wfc-archive"],
-    media: { type: "image", src: "", alt: "[TODO: alt text]", caption: "[TODO: caption]" } },
+    cite: ["wfc-archive"], media: "scaffolding" },
   { phase: "before", key: true,  date: "Sep 2024",
     text: "More than 1,000 owners attend a special meeting and remove the entire owners' corporation. The contract stands.",
     cite: ["sixthtone-2025"] },
@@ -63,8 +59,7 @@ const TIMELINE = [
   // ----- DURING -----
   { phase: "during", key: true,  date: "26 Nov 2025, 2:51 pm",
     text: "Fire starts low on Wang Cheong House and climbs four floors in about two minutes.",
-    cite: ["standard-2026-spread"],
-    media: { type: "youtube", id: "", title: "[TODO: video title]", caption: "[TODO: caption]" } },
+    cite: ["standard-2026-spread"], media: "fire-video" },
   // TODO: verify exact alarm times (No.4 at 15:34, No.5 at 18:22) in the HKFP timeline
   { phase: "during", key: false, date: "26 Nov 2025, evening",
     text: "Fire raised to the highest alarm level as it spreads across the estate.",
@@ -95,8 +90,7 @@ const TIMELINE = [
     cite: ["standard-2026-50arrested"] },
   { phase: "after", key: true,  date: "29 Oct 2026",
     text: "Inquiry report published. The main contractor and consultant are held chiefly responsible; four government departments share responsibility. Officials apologise; the Secretary for Housing resigns.",
-    cite: ["dimsum-2026-chief", "standard-2026-deficiencies"],
-    media: { type: "image", src: "", alt: "[TODO: alt text]", caption: "[TODO: caption]" } },
+    cite: ["dimsum-2026-chief", "standard-2026-deficiencies"], media: "report-video" },
   { phase: "after", key: false, date: "Nov 2026",
     text: "A new Public Housing Building Control Section replaces the ICU.",
     cite: ["standard-2026-reform"] },

@@ -263,6 +263,8 @@
           <p>${withCite(W.nuance)}</p>
         </aside>
       </article>
+      <!-- Outside link card (js/media-data.js); hidden until complete -->
+      <div class="hs-media" data-media="history-1982" hidden></div>
     </div>`);
 
   /* -------------------------------------------------------------------
