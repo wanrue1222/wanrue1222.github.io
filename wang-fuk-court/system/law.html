@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The law: what owners must do · Ownership Without Power</title>
+  <meta name="description" content="Hong Kong's laws gave owners every duty of a building manager. They gave them very few tools to protect themselves.">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- "../" because this page lives one folder down, in /system/ -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!-- All text, numbers and citations on this page live in js/law-data.js (hero, duty, end).
+     js/law.js fills each <section> below from that data. -->
+<body data-root="../" data-page="subpage">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="law">
+    <noscript><p class="container">This page needs JavaScript to show its content.</p></noscript>
+
+    <!-- 1. Hero -->
+    <section id="lw-hero" class="page-hero" aria-labelledby="page-title"></section>
+    <!-- 2. The duty -->
+    <section id="lw-duty" class="section" aria-labelledby="duty-title"></section>
+    <!-- This page covers only the DUTY. Capacity, voting rules, bid-rigging and the
+         failed checks now live on index.html#power; the reforms on index.html#realign. -->
+    <!-- 3. Link card to Part 2 + back link -->
+    <section id="lw-end" class="section hs-end" aria-label="Where next"></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Order matters: data files first, then main.js (shared), then this page's data and script -->
+  <script src="../js/memorial-data.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/citations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/law-data.js"></script>
+  <script src="../js/law.js"></script>
+</body>
+</html>

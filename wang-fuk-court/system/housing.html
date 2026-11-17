@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who builds, who owns, who repairs · Housing system</title>
+  <meta name="description" content="Nearly half of Hong Kong lives in housing the government built. But who repairs the building depends on whether you rent it or bought it.">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- "../" because this page lives one folder down, in /system/ -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!-- All text, numbers and citations on this page live in js/housing-data.js.
+     js/housing.js fills each <section> below from that data. -->
+<body data-root="../" data-page="subpage">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="housing">
+    <noscript><p class="container">This page needs JavaScript to show its content.</p></noscript>
+
+    <!-- 1. Hero -->
+    <section id="hs-hero" class="page-hero" aria-labelledby="page-title"></section>
+
+    <!-- 2. If Hong Kong were 100 people -->
+    <section id="hs-people" class="section" aria-labelledby="people-title"></section>
+
+    <!-- 3. Three housing systems -->
+    <section id="hs-systems" class="section" aria-labelledby="systems-title"></section>
+
+    <!-- 4. Who repairs? -->
+    <section id="hs-repairs" class="section" aria-labelledby="repairs-title"></section>
+
+    <!-- 5. A short history -->
+    <section id="hs-history" class="section" aria-labelledby="history-title"></section>
+
+    <!-- 6. Where Wang Fuk Court fits -->
+    <!-- TODO: verify in a Housing Authority source that Kwong Fuk Estate is still fully public rental housing -->
+    <section id="hs-wfc" class="section" aria-labelledby="wfc-title"></section>
+
+    <!-- 7. End of page -->
+    <section id="hs-end" class="section hs-end" aria-label="Conclusion"></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Order matters: data files first, then main.js (shared), then this page's data and script -->
+  <script src="../js/memorial-data.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/citations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/housing-data.js"></script>
+  <script src="../js/housing.js"></script>
+</body>
+</html>

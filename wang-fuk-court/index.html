@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ownership Without Power: The Wang Fuk Court Fire</title>
+  <meta name="description" content="Who was responsible for keeping Wang Fuk Court safe, who actually held power over it, and what happened when the two were separated?">
+
+  <!-- Adds class "js" to <html> immediately, so CSS can hide things that JS will reveal.
+       Without JavaScript, everything stays visible. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Google Fonts: Noto Serif (+TC for Chinese) for headings, Inter (+Noto Sans TC) for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- data-root = path from this page back to the site root ("" here, "../" in /system/).
+     data-page = which page this is, so main.js knows what to set up.
+
+     SECTION MAP (one question: power vs. responsibility)
+       #fire         Part 0  The fire: what happened?
+       #responsible  Part 1  Who was made responsible
+       #power        Part 2  Who held the power
+       #gap          Part 3  The gap
+       #realign      Part 4  Realigning?
+     (Footer: Methods, Theoretical framework, Sources, About, Ethics)
+     Most text lives in js/story-data.js, js/data.js, js/law-data.js and js/who-failed-data.js. -->
+<body data-root="" data-page="story">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header (with the nav), 168 button, memorial overlay and footer are injected by js/main.js -->
+  <div id="site-header"></div>
+
+  <!-- Tower progress indicator (31 floors). main.js fills it in. -->
+  <div class="tower-progress" id="tower-progress" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- =============================================================
+         PART 0. THE FIRE: hero + statements + timeline
+         ============================================================= -->
+    <div id="fire" class="part">
+
+      <!-- HERO: the research question only. The nav and tower indicator stay hidden
+           until you scroll past it (main.js adds body.on-hero). -->
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <h1 class="hero__question" id="hero-title">Who was responsible for keeping Wang Fuk Court safe, who actually held power over it, and what happened when the two were separated?</h1>
+        <a class="scroll-cue" href="#statements" aria-label="Scroll to the story">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </section>
+
+      <!-- STATEMENTS: each .statement fills one screen, same type size as the hero.
+           Scrollama fades the active one in. data-cite = citation ids (js/citations.js);
+           main.js turns them into (Author, Year) links. The text inside is the no-JS fallback. -->
+      <section id="statements" aria-label="Key facts">
+        <div class="statement" data-step>
+          <div class="statement__inner">
+            <p>On 26 November 2025, a fire at Wang Fuk Court in Hong Kong killed <span class="ember">168</span> people.</p>
+            <p class="statement__cite" data-cite="cp24-2026"><span class="cite">(<a href="sources.html#cp24-2026">CP24, 2026</a>)</span></p>
+          </div>
+        </div>
+        <div class="statement" data-step>
+          <div class="statement__inner">
+            <p>The estate was 42 years old. Its owners were renovating it themselves.</p>
+            <p class="statement__cite" data-cite="wfc-archive"><span class="cite">(<a href="sources.html#wfc-archive">Wang Fuk Court Fire Archive, n.d.</a>)</span></p>
+          </div>
+        </div>
+        <div class="statement" data-step>
+          <div class="statement__inner">
+            <p>This project asks who was responsible, who had power, and who paid.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE: filled from TIMELINE in js/data.js.
+           Key events show first; "Show full timeline" reveals the rest. -->
+      <section id="timeline" class="section" aria-labelledby="fire-title">
+        <div class="container container--text">
+          <span class="eyebrow">Part 0</span>
+          <h2 class="section-title" id="fire-title">The fire</h2>
+          <p class="part-question">What happened?</p>
+          <div id="timeline-root"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =============================================================
+         PART 1. WHO WAS MADE RESPONSIBLE
+         ============================================================= -->
+    <section id="responsible" class="section part" aria-labelledby="responsible-title">
+      <div class="container">
+        <span class="eyebrow scaffold">Part 1</span>
+        <h2 class="section-title" id="responsible-title">Who was made responsible</h2>
+
+        <!-- Two entry cards to the subpages (js/story-data.js → STORY.responsible.cards) -->
+        <div class="entry-cards" id="entry-cards"></div>
+
+        <!-- TheoryCard 1 of 4 (text: THEORY.responsible in js/data.js) -->
+        <div data-theory="responsible"></div>
+
+        <p class="summary-line" id="responsible-closing"></p>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         PART 2. WHO HELD THE POWER
+         Blocks a, b, c, e are drawn by js/law.js from js/law-data.js
+         (they used to be on system/law.html). Block d is the cross-section.
+         ============================================================= -->
+    <section id="power" class="section part" aria-labelledby="power-title">
+      <div class="container">
+        <span class="eyebrow ember">Part 2</span>
+        <h2 class="section-title" id="power-title">Who held the power</h2>
+        <p class="part-lead" id="power-lead"></p>
+      </div>
+
+      <!-- a. Who were the owners? -->
+      <div id="lw-owners" class="power-block"></div>
+      <!-- b. Easy to approve, hard to stop (5% / 10% dots, timeline, testimony) -->
+      <div id="lw-voting" class="power-block"></div>
+      <!-- c. What they were up against: bid-rigging -->
+      <div id="lw-bidrig" class="power-block"></div>
+      <!-- d. How it spread: building cross-section (js/who-failed-data.js) -->
+      <div class="power-block">
+        <div class="container"><div id="cross-section"></div></div>
+      </div>
+      <!-- e. The checks that failed -->
+      <div id="lw-checks" class="power-block"></div>
+    </section>
+
+    <!-- =============================================================
+         PART 3. THE GAP
+         The vote opens the section; everything in #gap-reveal appears after a choice.
+         ============================================================= -->
+    <section id="gap" class="section part" aria-labelledby="gap-title">
+      <div class="container">
+        <span class="eyebrow ember">Part 3</span>
+        <h2 class="section-title" id="gap-title">The gap</h2>
+        <p class="part-question">What happened when power and responsibility were separated?</p>
+
+        <!-- a. Reader vote (kept in memory only; nothing is saved or sent) -->
+        <div id="gap-vote"></div>
+
+        <div id="gap-reveal" class="reveal">
+          <!-- b. 2x2 chart: power vs. responsibility -->
+          <div id="gap-matrix"></div>
+          <!-- c. The chain of responsibility (pills + 3 tiers + node panel) -->
+          <div id="chain"></div>
+          <!-- d. The owners in the middle -->
+          <div id="owners-middle"></div>
+          <!-- e. TheoryCard 2 of 4 -->
+          <div data-theory="gap"></div>
+          <!-- f. Who paid -->
+          <div id="who-paid-slot"></div>
+          <!-- g. Closing line -->
+          <div id="wf-closing"></div>
+        </div>
+
+        <!-- TODO (do not display): Sing Tao Daily headline says the report criticised the Buildings Department
+             and ICU for shifting supervision responsibility onto residents. Verify wording at
+             https://www.stheadline.com/politics/3630442/ before adding. -->
+      </div>
+    </section>
+
+    <!-- =============================================================
+         PART 4. REALIGNING?
+         ============================================================= -->
+    <section id="realign" class="section part" aria-labelledby="realign-title">
+      <div class="container">
+        <span class="eyebrow scaffold">Part 4</span>
+        <h2 class="section-title" id="realign-title">Realigning?</h2>
+        <p class="part-question">Do the reforms bring power and responsibility back together?</p>
+
+        <!-- a. Reform scorecard (js/story-data.js → STORY.realign.scorecard) -->
+        <div id="scorecard"></div>
+        <!-- b. Trade-off (text from js/law-data.js → LAW.reforms.tradeoff) -->
+        <div id="tradeoff"></div>
+        <!-- c. TheoryCard 3 of 4 -->
+        <div data-theory="realign"></div>
+
+        <!-- d. My proposal -->
+        <div class="proposal" aria-labelledby="proposal-title">
+          <span class="eyebrow scaffold">My proposal</span>
+          <h3 class="proposal-statement" id="proposal-title">Put power and responsibility back together</h3>
+          <ol class="recs">
+            <li><h4>[TODO: proposal 1]</h4><p>[TODO: one or two sentences]</p></li>
+            <li><h4>[TODO: proposal 2]</h4><p>[TODO: one or two sentences]</p></li>
+            <li><h4>[TODO: proposal 3]</h4><p>[TODO: one or two sentences]</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Scripts: Scrollama, then data files, then main.js (shared), then law.js (Part 2 blocks) -->
+  <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+  <script src="js/memorial-data.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/citations.js"></script>
+  <script src="js/who-failed-data.js"></script>
+  <script src="js/law-data.js"></script>
+  <script src="js/story-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/law.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsibility without power · The law</title>
+  <meta name="description" content="Hong Kong's laws gave owners every duty of a building manager. They gave them very few tools to protect themselves.">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- "../" because this page lives one folder down, in /system/ -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!-- All text, numbers and citations on this page live in js/law-data.js.
+     js/law.js fills each <section> below from that data. -->
+<body data-root="../" data-page="subpage">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="law">
+    <noscript><p class="container">This page needs JavaScript to show its content.</p></noscript>
+
+    <!-- 1. Hero -->
+    <section id="lw-hero" class="page-hero" aria-labelledby="page-title"></section>
+    <!-- 2. The duty -->
+    <section id="lw-duty" class="section" aria-labelledby="duty-title"></section>
+    <!-- 3. Who were the owners? -->
+    <section id="lw-owners" class="section" aria-labelledby="owners-title"></section>
+    <!-- 4. The voting rules (dot visual + timeline + testimony) -->
+    <section id="lw-voting" class="section" aria-labelledby="voting-title"></section>
+    <!-- 5. Bid-rigging -->
+    <section id="lw-bidrig" class="section" aria-labelledby="bidrig-title"></section>
+    <!-- 6. The checks that failed -->
+    <section id="lw-checks" class="section" aria-labelledby="checks-title"></section>
+    <!-- 7. The reforms -->
+    <section id="lw-reforms" class="section" aria-labelledby="reforms-title"></section>
+    <!-- 8. End of page -->
+    <section id="lw-end" class="section hs-end" aria-label="Conclusion"></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Order matters: data files first, then main.js (shared), then this page's data and script -->
+  <script src="../js/memorial-data.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/citations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/law-data.js"></script>
+  <script src="../js/law.js"></script>
+</body>
+</html>

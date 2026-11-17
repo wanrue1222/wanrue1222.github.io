@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ownership Without Power: The Wang Fuk Court Fire</title>
+  <meta name="description" content="[TODO: one-sentence description for search engines and link previews]">
+
+  <!-- Adds class "js" to <html> immediately, so CSS can hide things that JS will reveal.
+       Without JavaScript, everything stays visible. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Google Fonts: Noto Serif (+TC for Chinese) for headings, Inter (+Noto Sans TC) for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- data-root = path from this page back to the site root ("" here, "../" in /system/).
+     data-page = which page this is, so main.js knows what to set up. -->
+<body data-root="" data-page="story">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header, 168 button, memorial overlay and footer are injected by js/main.js
+       so you only edit them in ONE place. -->
+  <div id="site-header"></div>
+
+  <!-- Tower progress indicator (31 floors). main.js fills it in. -->
+  <div class="tower-progress" id="tower-progress" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- =============================================================
+         1. HERO
+         ============================================================= -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <!-- TODO: background video. Put the file in /assets/ and replace the placeholder:
+        <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+        Or an image:
+        <img src="assets/hero.jpg" alt="[TODO: describe the image]">
+        -->
+        <div class="placeholder" aria-hidden="true">[TODO: hero background video or image]</div>
+      </div>
+
+      <!-- Ember particles (drawn by main.js; turned off for reduced motion) -->
+      <canvas class="hero__embers" id="embers" aria-hidden="true"></canvas>
+
+      <div class="hero__content">
+        <span class="eyebrow">[TODO: e.g. Hong Kong · 26 November 2025]</span>
+        <h1 class="hero__title" id="hero-title">
+          Ownership Without Power:
+          <!-- the subtitle is part of the same <h1>, just set smaller -->
+          <span class="hero__subtitle">The Wang Fuk Court Fire and the Burden of Maintaining Hong Kong’s Aging HOS Estates</span>
+          <span class="zh" lang="zh-Hant">宏福苑</span>
+        </h1>
+        <p class="hero__question">When Hong Kong makes owners of aging subsidized housing responsible for their own repairs, who carries the risk?</p>
+      </div>
+
+      <a class="scroll-cue" href="#statements">Scroll</a>
+    </section>
+
+    <!-- =============================================================
+         2. STATEMENTS: each .statement fills one screen.
+         Scrollama fades the active one in. Add/remove <div>s freely.
+         Wrap key failures/numbers in <span class="ember">.
+         ============================================================= -->
+    <section id="statements" aria-label="Key facts">
+      <div class="statement" data-step><p>[TODO: "<span class="ember">168</span> people died."]</p></div>
+      <div class="statement" data-step><p>[TODO: "The building was 42 years old."]</p></div>
+      <div class="statement" data-step><p>[TODO: statement three]</p></div>
+      <div class="statement" data-step><p>[TODO: "Who was responsible?"]</p></div>
+    </section>
+
+    <!-- =============================================================
+         3. TIMELINE: filled from TIMELINE in js/data.js
+         ============================================================= -->
+    <section id="timeline" class="section" aria-labelledby="timeline-title">
+      <div class="container container--text">
+        <span class="eyebrow">Timeline</span>
+        <h2 class="section-title" id="timeline-title">[TODO: timeline heading]</h2>
+        <p class="lede">[TODO: one-line intro to the timeline]</p>
+
+        <!-- main.js creates one .timeline-phase per phase (Before / During / After) here -->
+        <div id="timeline-root"></div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         4. THE SYSTEM: 8 towers = the estate's 8 blocks.
+         Towers are drawn by main.js (same SVG reused 8 times).
+         Edit labels/links/takeaways in SYSTEM_BLOCKS in js/data.js.
+         ============================================================= -->
+    <section id="system" class="section" aria-labelledby="system-title">
+      <div class="container">
+        <span class="eyebrow scaffold">Structure</span>
+        <h2 class="section-title" id="system-title">The system</h2>
+        <p class="lede">[TODO: one-line intro: "Wang Fuk Court had eight blocks. Four of them open a part of the system."]</p>
+
+        <div class="towers" id="towers"></div>
+
+        <!-- Takeaways are always visible (no click needed) -->
+        <div class="takeaways" id="takeaways"></div>
+
+        <p class="summary-line">[TODO: "By law, the <span class="scaffold">owners</span> were responsible."]</p>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         5. WHO FAILED
+         ============================================================= -->
+    <section id="who-failed" class="section" aria-labelledby="failed-title">
+      <!-- All text, numbers and citations here live in js/who-failed-data.js.
+           main.js (section 10) fills each container below. -->
+      <div class="container">
+        <div id="wf-intro"></div>
+
+        <!-- A. How it spread: building cross-section (SVG drawn by main.js) -->
+        <div id="cross-section"></div>
+
+        <!-- B. The chain of responsibility: pills + 3 tiers + node panel -->
+        <div id="chain"></div>
+
+        <!-- C. The owners in the middle -->
+        <div id="owners-middle"></div>
+
+        <!-- D. Closing line -->
+        <div id="wf-closing"></div>
+
+        <!-- TODO (do not display): Sing Tao Daily headline says the report criticised the Buildings Department
+             and ICU for shifting supervision responsibility onto residents. Verify wording at
+             https://www.stheadline.com/politics/3630442/ before adding. -->
+      </div>
+    </section>
+
+    <!-- =============================================================
+         6. DEBATE
+         ============================================================= -->
+    <section id="debate" class="section" aria-labelledby="debate-title">
+      <div class="container">
+        <span class="eyebrow">Debate</span>
+        <h2 class="section-title" id="debate-title">Who should be responsible?</h2>
+
+        <!-- (a) Reader vote. The choice is kept only in a JS variable, never saved or sent. -->
+        <div class="debate-block">
+          <h3 id="vote-q">[TODO: vote prompt, e.g. "Before you read on: who do you think should carry the most responsibility?"]</h3>
+          <div class="vote" role="group" aria-labelledby="vote-q">
+            <button class="vote__btn" data-vote="Contractors" aria-pressed="false">Contractors</button>
+            <button class="vote__btn" data-vote="Regulators" aria-pressed="false">Regulators</button>
+            <button class="vote__btn" data-vote="Government" aria-pressed="false">Government</button>
+            <button class="vote__btn" data-vote="Owners" aria-pressed="false">Owners</button>
+          </div>
+          <p class="vote-result" id="vote-result" aria-live="polite"></p>
+        </div>
+
+        <!-- Everything below stays hidden until the reader votes -->
+        <div class="reveal" id="debate-reveal" hidden>
+
+          <!-- (b) 2x2 chart: drawn by main.js from MATRIX_ACTORS in js/data.js -->
+          <div class="debate-block">
+            <h3>[TODO: chart heading, e.g. "Responsibility vs. power"]</h3>
+            <p class="muted">[TODO: one-line chart explanation]</p>
+            <figure class="matrix">
+              <svg id="matrix" viewBox="0 0 600 600" role="img" aria-labelledby="matrix-title matrix-desc">
+                <title id="matrix-title">Legal responsibility versus actual power</title>
+                <desc id="matrix-desc">[TODO: describe the chart for screen readers, e.g. "Owners have high legal responsibility but low actual power."]</desc>
+              </svg>
+              <figcaption class="muted">[TODO: source / note for the chart]</figcaption>
+            </figure>
+          </div>
+
+          <!-- (c) Reform scorecard. Edit rows directly here.
+               ✓ in a <td class="yes"> = reform addresses that layer (green).
+               An empty Structural cell gets class="gap" (orange = still unaddressed). -->
+          <div class="debate-block">
+            <h3>[TODO: scorecard heading, e.g. "What the reforms fix, and what they leave out"]</h3>
+            <div class="table-wrap">
+              <table class="scorecard">
+                <caption class="sr-only">Reforms and the layers of responsibility they address</caption>
+                <thead>
+                  <tr><th scope="col">Reform</th><th scope="col">Direct</th><th scope="col">Oversight</th><th scope="col">Structural</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">[TODO: reform 1]</th><td class="yes">✓<span class="sr-only"> yes</span></td><td></td><td class="gap"><span class="sr-only">not addressed</span></td></tr>
+                  <tr><th scope="row">[TODO: reform 2]</th><td class="yes">✓<span class="sr-only"> yes</span></td><td class="yes">✓<span class="sr-only"> yes</span></td><td class="gap"><span class="sr-only">not addressed</span></td></tr>
+                  <tr><th scope="row">[TODO: reform 3]</th><td></td><td class="yes">✓<span class="sr-only"> yes</span></td><td class="gap"><span class="sr-only">not addressed</span></td></tr>
+                  <tr><th scope="row">[TODO: reform 4]</th><td></td><td></td><td class="yes">✓<span class="sr-only"> yes</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- (d) Media views: quote cards from QUOTES in js/data.js -->
+          <div class="debate-block">
+            <h3>[TODO: media heading, e.g. "What the media said"]</h3>
+            <div class="pills" role="group" aria-label="Filter quotes by layer">
+              <button class="pill" data-filter="all" aria-pressed="true">All</button>
+              <button class="pill" data-filter="direct" aria-pressed="false">Direct</button>
+              <button class="pill" data-filter="oversight" aria-pressed="false">Oversight</button>
+              <button class="pill" data-filter="structural" aria-pressed="false">Structural</button>
+            </div>
+            <div class="quotes" id="quotes"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         7. BEYOND HONG KONG: three comparison cards with the same rows
+         ============================================================= -->
+    <section id="beyond" class="section" aria-labelledby="beyond-title">
+      <div class="container">
+        <span class="eyebrow">Comparison</span>
+        <h2 class="section-title" id="beyond-title">[TODO: "Beyond Hong Kong"]</h2>
+        <p class="lede">[TODO: intro sentence]</p>
+
+        <div class="compare">
+          <article class="card card--here">
+            <h3>Wang Fuk Court</h3>
+            <p class="year">Hong Kong · 2025</p>
+            <dl>
+              <dt>Deaths</dt><dd class="ember">[TODO]</dd>
+              <dt>Building type</dt><dd>[TODO]</dd>
+              <dt>Who owned it</dt><dd>[TODO]</dd>
+              <dt>Cause of spread</dt><dd>[TODO]</dd>
+              <dt>Who was held responsible</dt><dd>[TODO]</dd>
+              <dt>What changed after</dt><dd>[TODO]</dd>
+            </dl>
+          </article>
+          <article class="card">
+            <h3>Grenfell Tower</h3>
+            <p class="year">London · 2017</p>
+            <dl>
+              <dt>Deaths</dt><dd class="ember">[TODO]</dd>
+              <dt>Building type</dt><dd>[TODO]</dd>
+              <dt>Who owned it</dt><dd>[TODO]</dd>
+              <dt>Cause of spread</dt><dd>[TODO]</dd>
+              <dt>Who was held responsible</dt><dd>[TODO]</dd>
+              <dt>What changed after</dt><dd>[TODO]</dd>
+            </dl>
+          </article>
+          <article class="card">
+            <h3>Surfside</h3>
+            <p class="year">Champlain Towers South, Florida · 2021</p>
+            <dl>
+              <dt>Deaths</dt><dd class="ember">[TODO]</dd>
+              <dt>Building type</dt><dd>[TODO]</dd>
+              <dt>Who owned it</dt><dd>[TODO]</dd>
+              <dt>Cause of failure</dt><dd>[TODO]</dd>
+              <dt>Who was held responsible</dt><dd>[TODO]</dd>
+              <dt>What changed after</dt><dd>[TODO]</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         8. PROPOSAL
+         ============================================================= -->
+    <section id="proposal" class="section" aria-labelledby="proposal-title">
+      <div class="container">
+        <span class="eyebrow scaffold">Proposal</span>
+        <h2 class="sr-only" id="proposal-title">Proposal</h2>
+        <p class="proposal-statement">[TODO: large closing statement]</p>
+
+        <ol class="recs">
+          <li><h3>[TODO: recommendation 1]</h3><p>[TODO: one or two sentences]</p></li>
+          <li><h3>[TODO: recommendation 2]</h3><p>[TODO: one or two sentences]</p></li>
+          <li><h3>[TODO: recommendation 3]</h3><p>[TODO: one or two sentences]</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Scripts: Scrollama (scroll steps), then your data, then your code -->
+  <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+  <script src="js/memorial-data.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/citations.js"></script>
+  <script src="js/who-failed-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
